@@ -1,0 +1,129 @@
+<pre><font color="#8AE234"><b>NAME</b></font>
+       setxkbmap - set the keyboard using the X Keyboard Extension
+
+<font color="#8AE234"><b>SYNOPSIS</b></font>
+       <font color="#8AE234"><b>setxkbmap</b></font> <font color="#8AE234"><b>[</b></font> <font color="#EF2929"><u style="text-decoration-style:single"><b>args</b></u></font> <font color="#8AE234"><b>]</b></font> <font color="#8AE234"><b>[</b></font> <font color="#EF2929"><u style="text-decoration-style:single"><b>layout</b></u></font> <font color="#8AE234"><b>[</b></font> <font color="#EF2929"><u style="text-decoration-style:single"><b>variant</b></u></font> <font color="#8AE234"><b>[</b></font> <font color="#EF2929"><u style="text-decoration-style:single"><b>option</b></u></font> <font color="#EF2929"><u style="text-decoration-style:single"><b>...</b></u></font>  <font color="#8AE234"><b>]</b></font> <font color="#8AE234"><b>]</b></font> <font color="#8AE234"><b>]</b></font>
+
+<font color="#8AE234"><b>DESCRIPTION</b></font>
+       The <font color="#8AE234"><b>setxkbmap</b></font> command maps the keyboard to use the layout determined by the options specified on the command line.
+
+       An  XKB  keymap  is  constructed  from  a  number  of  components  which  are compiled only as needed.  The source for all of the components can be found in
+       <font color="#EF2929"><u style="text-decoration-style:single"><b>/usr/share/X11/xkb</b></u></font>.
+
+<font color="#8AE234"><b>OPTIONS</b></font>
+       <font color="#8AE234"><b>-compat</b></font> <font color="#EF2929"><u style="text-decoration-style:single"><b>name</b></u></font>
+               Specifies the name of the compatibility map component used to construct a keyboard layout.
+
+       <font color="#8AE234"><b>-config</b></font> <font color="#EF2929"><u style="text-decoration-style:single"><b>file</b></u></font>
+               Specifies the name of an XKB configuration file which describes the keyboard to be used.
+
+       <font color="#8AE234"><b>-device</b></font> <font color="#EF2929"><u style="text-decoration-style:single"><b>device</b></u></font>
+               Specifies the numeric device id of the input device to be updated with the new keyboard layout. If not specified, the core keyboard device of the  X
+               server is updated.
+
+       <font color="#8AE234"><b>-display</b></font> <font color="#EF2929"><u style="text-decoration-style:single"><b>display</b></u></font>
+               Specifies the display to be updated with the new keyboard layout.
+
+       <font color="#8AE234"><b>-geometry</b></font> <font color="#EF2929"><u style="text-decoration-style:single"><b>name</b></u></font>
+               Specifies the name of the geometry component used to construct a keyboard layout.
+
+       <font color="#8AE234"><b>-help</b></font>   Prints a message describing the valid input to <font color="#EF2929"><u style="text-decoration-style:single"><b>setxkbmap</b></u></font>.
+
+       <font color="#8AE234"><b>-I</b></font> <font color="#EF2929"><u style="text-decoration-style:single"><b>directory</b></u></font>
+               Adds a directory to the list of directories to be used to search for specified layout or rules files.
+
+       <font color="#8AE234"><b>-keycodes</b></font> <font color="#EF2929"><u style="text-decoration-style:single"><b>name</b></u></font>
+               Specifies the name of the keycodes component used to construct a
+               keyboard layout.
+
+       <font color="#8AE234"><b>-keymap</b></font> <font color="#EF2929"><u style="text-decoration-style:single"><b>name</b></u></font>
+               Specifies the name of the keymap description used to construct a
+               keyboard layout.
+
+       <font color="#8AE234"><b>-layout</b></font> <font color="#EF2929"><u style="text-decoration-style:single"><b>name</b></u></font>
+               Specifies  the  name  of the layout used to determine the compo‐
+               nents which make up the keyboard description. The <font color="#EF2929"><u style="text-decoration-style:single"><b>-layout</b></u></font> option
+               may  only  be  used once. Multiple layouts can be specified as a
+               comma-separated list.
+
+       <font color="#8AE234"><b>-model</b></font> <font color="#EF2929"><u style="text-decoration-style:single"><b>name</b></u></font>
+               Specifies the name of the keyboard model used to  determine  the
+               components  which  make  up  the keyboard description.  Only one
+               model may be specified on the command line.
+
+       <font color="#8AE234"><b>-option</b></font> <font color="#EF2929"><u style="text-decoration-style:single"><b>name</b></u></font>
+               Specifies the name of an  option  to  determine  the  components
+               which make up the keyboard description;  multiple options may be
+               specified, one per <font color="#EF2929"><u style="text-decoration-style:single"><b>-option</b></u></font> flag. Note that  <font color="#8AE234"><b>setxkbmap</b></font>  adds  op‐
+               tions specified in the command line to the options that were set
+               before (as saved in root window properties). If you want to  re‐
+               place  all  previously  specified  options, use the <font color="#EF2929"><u style="text-decoration-style:single"><b>-option</b></u></font> flag
+               with an empty argument first.
+
+       <font color="#8AE234"><b>-print</b></font>  With this option <font color="#8AE234"><b>setxkbmap</b></font> just prints component names in a for‐
+               mat  acceptable  by  <font color="#8AE234"><b>xkbcomp</b></font> (an XKB keymap compiler) and exits.
+               The option can be used for tests instead of a verbose option and
+               in  cases  when one needs to run both the <font color="#8AE234"><b>setxkbmap</b></font> and the <font color="#8AE234"><b>xkb‐</b></font>
+               <font color="#8AE234"><b>comp</b></font> in chain (see below).
+
+       <font color="#8AE234"><b>-query</b></font>  With this option <font color="#8AE234"><b>setxkbmap</b></font> just prints the current rules, model,
+               layout, variant, and options, then exits.
+
+       <font color="#8AE234"><b>-rules</b></font> <font color="#EF2929"><u style="text-decoration-style:single"><b>file</b></u></font>
+               Specifies  the  name  of  the rules file used to resolve the re‐
+               quested layout and model to a set of component names.
+
+       <font color="#8AE234"><b>-symbols</b></font> <font color="#EF2929"><u style="text-decoration-style:single"><b>name</b></u></font>
+               Specifies the name of the symbols component used to construct  a
+               keyboard layout.
+
+       <font color="#8AE234"><b>-synch</b></font>  Force synchronization for X requests.
+
+       <font color="#8AE234"><b>-types</b></font> <font color="#EF2929"><u style="text-decoration-style:single"><b>name</b></u></font>
+               Specifies  the  name  of the types component used to construct a
+               keyboard layout.
+
+       <font color="#8AE234"><b>-variant</b></font> <font color="#EF2929"><u style="text-decoration-style:single"><b>name</b></u></font>
+               Specifies which variant of the keyboard layout should be used to
+               determine the components which make up the keyboard description.
+               The <font color="#EF2929"><u style="text-decoration-style:single"><b>-variant</b></u></font> option may only be used once. Multiple variants can
+               be  specified as a comma-separated list and will be matched with
+               the layouts specified with <font color="#EF2929"><u style="text-decoration-style:single"><b>-layout</b></u></font>.
+
+       <font color="#8AE234"><b>-verbose|-v</b></font> <font color="#8AE234"><b>[</b></font><font color="#EF2929"><u style="text-decoration-style:single"><b>level</b></u></font><font color="#8AE234"><b>]</b></font>
+               Specifies level of verbosity in output messages.   Valid  levels
+               range  from 0 (least verbose) to 10 (most verbose).  The default
+               verbosity level is 5.  If no level  is  specified,  each  <font color="#EF2929"><u style="text-decoration-style:single"><b>-v</b></u></font>  or
+               <font color="#EF2929"><u style="text-decoration-style:single"><b>-verbose</b></u></font> flag raises the level by 1.
+
+       <font color="#8AE234"><b>-version</b></font>
+               Prints the program&apos;s version number.
+
+<font color="#8AE234"><b>USING</b></font> <font color="#8AE234"><b>WITH</b></font> <font color="#8AE234"><b>xkbcomp</b></font>
+       If you have an Xserver and a client shell running on different computers
+       and some XKB configuration files on those machines  are  different,  you
+       can get problems specifying a keyboard map by model, layout, and options
+       names.  This is because <font color="#8AE234"><b>setxkbmap</b></font> converts its arguments to names of XKB
+       configuration  files according to files that are on the client-side com‐
+       puter, then sends these file names to the server where  <font color="#8AE234"><b>xkbcomp</b></font>  has  to
+       compose  a complete keyboard map using files which the server has.  Thus
+       if the sets of files differ in some way, the names that <font color="#8AE234"><b>setxkbmap</b></font> gener‐
+       ates can be unacceptable on the server side.  You can solve this problem
+       by running the <font color="#8AE234"><b>xkbcomp</b></font> on the client side too.  With the  <font color="#EF2929"><u style="text-decoration-style:single"><b>-print</b></u></font>  option
+       <font color="#8AE234"><b>setxkbmap</b></font>  just  prints  the  file names in an appropriate format to its
+       stdout and this output can be piped directly to the <font color="#8AE234"><b>xkbcomp</b></font> input.   For
+       example, the command
+
+       <font color="#8AE234"><b>setxkbmap</b></font> <font color="#8AE234"><b>us</b></font> <font color="#8AE234"><b>-print</b></font> <font color="#8AE234"><b>|</b></font> <font color="#8AE234"><b>xkbcomp</b></font> <font color="#8AE234"><b>-</b></font> <font color="#8AE234"><b>$DISPLAY</b></font>
+
+       makes  both  steps run on the same (client) machine and loads a keyboard
+       map into the server.
+
+<font color="#8AE234"><b>SEE</b></font> <font color="#8AE234"><b>ALSO</b></font>
+       xkbcomp(1), xkeyboard-config(7)
+
+<font color="#8AE234"><b>FILES</b></font>
+       <font color="#EF2929"><u style="text-decoration-style:single"><b>/usr/share/X11/xkb</b></u></font>
+
+X Version 11                    setxkbmap 1.3.2                    SETXKBMAP(1)
+</pre>
